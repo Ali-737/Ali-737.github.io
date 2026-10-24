@@ -4,30 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ali Ahsan is a Software Engineer specializing in full-stack web development, APIs, and AI-enabled applications.">
+  <meta name="description" content="Ali Ahsan — Software Engineer specializing in full-stack web applications, APIs, and AI-enabled application features.">
+  <meta name="theme-color" content="#0b1120">
   <title>Ali Ahsan | Software Engineer</title>
+
   <style>
     :root {
       --bg: #0b1120;
       --panel: #111b2e;
+      --panel-hover: #16233a;
       --text: #e8eef8;
       --muted: #9aa9c0;
       --accent: #65d6ad;
-      --border: #24334a;
+      --border: #26354c;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
     body {
-      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
 
     .container {
       width: min(1050px, 90%);
@@ -38,51 +56,57 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
       padding: 22px 0;
       border-bottom: 1px solid var(--border);
     }
 
     .logo {
+      color: var(--accent);
       font-size: 21px;
       font-weight: 800;
-      color: var(--accent);
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
-      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 20px;
       color: var(--muted);
+      font-size: 14px;
     }
 
-    .nav-links a:hover, .text-link:hover {
+    .nav-links a:hover,
+    .text-link:hover {
       color: var(--accent);
     }
 
     .hero {
-      padding: 95px 0 75px;
+      padding: 100px 0 75px;
     }
 
     .eyebrow {
       color: var(--accent);
       font-size: 13px;
+      font-weight: bold;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-weight: bold;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 1.08;
-      letter-spacing: -2px;
       margin: 20px 0;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.1;
+      letter-spacing: -2px;
     }
 
-    h1 span { color: var(--accent); }
+    h1 span {
+      color: var(--accent);
+    }
 
     .intro {
+      max-width: 700px;
       color: var(--muted);
-      max-width: 680px;
       font-size: 18px;
     }
 
@@ -95,11 +119,16 @@
 
     .button {
       display: inline-block;
-      padding: 12px 20px;
+      padding: 11px 19px;
       border: 1px solid var(--accent);
       border-radius: 8px;
-      font-weight: bold;
       font-size: 14px;
+      font-weight: bold;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
     }
 
     .primary {
@@ -107,17 +136,23 @@
       color: #07150f;
     }
 
-    section { padding: 45px 0; }
+    .primary:hover {
+      background: #83e6c2;
+    }
+
+    section {
+      padding: 48px 0;
+    }
 
     .section-title {
-      font-size: 29px;
-      margin: 0 0 22px;
+      margin-bottom: 10px;
+      font-size: 30px;
+      line-height: 1.3;
     }
 
     .section-description {
+      margin-bottom: 26px;
       color: var(--muted);
-      margin-top: -12px;
-      margin-bottom: 24px;
     }
 
     .grid {
@@ -127,58 +162,100 @@
     }
 
     .card {
-      background: var(--panel);
+      min-width: 0;
+      padding: 25px;
       border: 1px solid var(--border);
       border-radius: 13px;
-      padding: 24px;
+      background: var(--panel);
+      transition: border-color 0.2s, transform 0.2s;
     }
 
-    .card h3 { margin-top: 0; }
+    .card:hover {
+      border-color: #426b76;
+      transform: translateY(-3px);
+    }
 
-    .card p, .muted { color: var(--muted); }
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 18px;
+      margin-top: 17px;
+      margin-bottom: 15px;
     }
 
     .tag {
-      background: #1a2b40;
-      color: #b8f4df;
-      border-radius: 5px;
       padding: 4px 9px;
+      border-radius: 5px;
+      background: #1c2d43;
+      color: #b8f4df;
+      font-size: 12px;
+    }
+
+    .card .note {
+      margin-top: 12px;
       font-size: 12px;
     }
 
     .experience-item {
-      border-left: 2px solid var(--accent);
-      padding: 2px 0 20px 22px;
       margin-left: 6px;
+      padding: 3px 0 28px 23px;
+      border-left: 2px solid var(--accent);
     }
 
     .date {
       color: var(--accent);
       font-size: 13px;
+      font-weight: bold;
     }
 
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .experience-item h3 {
+      margin: 5px 0 8px;
+      font-size: 19px;
     }
 
-    .skills-list span {
-      padding: 10px 15px;
+    .experience-item p {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skills-grid .card {
+      padding: 22px;
+    }
+
+    .education-meta {
+      margin-top: 5px;
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    .contact-card {
+      padding: 30px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 13px;
       background: var(--panel);
     }
 
     footer {
-      margin-top: 50px;
-      padding: 28px 0;
+      margin-top: 45px;
+      padding: 25px 0;
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 13px;
@@ -186,159 +263,347 @@
     }
 
     @media (max-width: 650px) {
-      .grid { grid-template-columns: 1fr; }
-      .nav-links { gap: 12px; font-size: 12px; }
-      .hero { padding-top: 65px; }
-      h1 { letter-spacing: -1px; }
+      .grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        gap: 12px 17px;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+
+      .card,
+      .contact-card {
+        padding: 21px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <nav>
-      <a class="logo" href="#">Ali Ahsan.</a>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+      <a class="logo" href="#home">Ali Ahsan.</a>
+
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
 
-    <header class="hero" id="about">
+    <!-- Hero -->
+    <header class="hero" id="home">
       <div class="eyebrow">Software Engineer · Lahore, Pakistan</div>
-      <h1>Building useful<br>web applications<br><span>from front to back.</span></h1>
+
+      <h1>
+        Building web apps<br>
+        from front to back.<br>
+        <span>Solving real problems.</span>
+      </h1>
+
       <p class="intro">
-        I'm Ali, a Software Engineer with professional experience
-        developing full-stack applications, building APIs, and
-        delivering front-end and back-end features. I enjoy solving
-        practical problems and building reliable products, including
-        applications with AI-enabled functionality.
+        I'm Ali Ahsan, a Software Engineer experienced in full-stack
+        web application development, API development and integrations,
+        and production software. I work across frontend and backend
+        features and have experience contributing to applications
+        involving AI-related functionality.
       </p>
+
       <div class="buttons">
-        <a class="button primary" href="#projects">Explore my work</a>
-        <a class="button" href="#contact">Get in touch</a>
+        <a class="button primary" href="#projects">Explore My Work</a>
+        <a class="button" href="#contact">Contact Me</a>
       </div>
     </header>
 
-    <section id="skills">
-      <h2 class="section-title">Technical Skills</h2>
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+
       <p class="section-description">
-        Technologies I've worked with across application development.
+        A full-stack engineer focused on building and improving
+        practical web applications.
       </p>
-      <div class="skills-list">
-        <span>JavaScript</span>
-        <span>Python</span>
-        <span>React.js</span>
-        <span>Vue.js</span>
-        <span>FastAPI</span>
-        <span>Ruby on Rails</span>
-        <span>REST APIs</span>
-        <span>API Integrations</span>
-        <span>AI-enabled Applications</span>
-        <span>Unity</span>
+
+      <div class="card">
+        <p>
+          My professional experience includes working on frontend
+          interfaces, backend functionality, APIs, integrations, and
+          application workflows. I've contributed to features within
+          established production codebases and collaborated with
+          teams to deliver and maintain application functionality.
+        </p>
+
+        <p style="margin-top: 14px;">
+          My technical background includes JavaScript, Python,
+          React.js, Vue.js, FastAPI, and Ruby on Rails. I'm also
+          interested in building applications that incorporate AI
+          capabilities where they solve real product problems.
+        </p>
       </div>
     </section>
 
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <p class="section-description">
+        Technologies and areas of development across my work.
+      </p>
+
+      <div class="skills-grid">
+
+        <article class="card">
+          <h3>Programming Languages</h3>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Frontend Development</h3>
+          <div class="tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">Next.js</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Backend Development</h3>
+          <div class="tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">Ruby on Rails</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Integrations & AI</h3>
+          <div class="tags">
+            <span class="tag">API Integrations</span>
+            <span class="tag">Third-Party Services</span>
+            <span class="tag">AI-Enabled Applications</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Application Development</h3>
+          <div class="tags">
+            <span class="tag">Full-Stack Features</span>
+            <span class="tag">Debugging</span>
+            <span class="tag">Responsive Interfaces</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Additional Experience</h3>
+          <div class="tags">
+            <span class="tag">Unity</span>
+            <span class="tag">C</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Experience -->
     <section id="experience">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title">Professional Experience</h2>
+
+      <p class="section-description">
+        Experience contributing to software products and web applications.
+      </p>
 
       <div class="experience-item">
         <div class="date">January 2025 – Present</div>
+
         <h3>Software Engineer · Coding Cops</h3>
-        <p class="muted">
-          Contributing to full-stack application development across
-          front-end and back-end features, APIs, integrations, and
-          application workflows. Working with team codebases to
-          implement features and maintain existing functionality.
+
+        <p>
+          Contribute to full-stack application development across
+          frontend interfaces, backend features, API integrations,
+          and application workflows. Work within an established
+          codebase to implement and maintain features and support
+          reliable application behavior.
         </p>
       </div>
 
       <div class="experience-item">
         <div class="date">August 2024 – January 2025</div>
+
         <h3>Associate Software Engineer · Programmers Force</h3>
-        <p class="muted">
-          Worked on web application features, user interfaces,
-          responsive components, and API-connected workflows.
-          Collaborated with team members to implement changes
-          and troubleshoot application issues.
+
+        <p>
+          Worked on web application features, frontend components,
+          responsive interfaces, and API-connected workflows.
+          Collaborated with team members to implement changes,
+          troubleshoot issues, and improve existing functionality.
         </p>
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
       <h2 class="section-title">Selected Projects</h2>
+
       <p class="section-description">
-        A selection of professional and academic experience.
+        Professional product contributions and academic development work.
       </p>
 
       <div class="grid">
+
         <article class="card">
           <h3>Full-Stack Product Development</h3>
+
           <p>
             Contributed to a large production application, working
-            across front-end and back-end features, APIs, and
-            integrations. Experience includes implementing features
-            within an established team codebase.
+            across frontend and backend features, APIs, integrations,
+            and application workflows. Implemented and maintained
+            features within an established team codebase.
           </p>
+
           <div class="tags">
             <span class="tag">React.js</span>
             <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
             <span class="tag">APIs</span>
           </div>
-          <p><small>Professional experience · Details kept confidential</small></p>
+
+          <p class="note">
+            Professional experience · Product details kept confidential
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>AI-Enabled Application Features</h3>
+
+          <p>
+            Professional experience contributing to application
+            functionality and integrations involving AI-related
+            features. Worked across application components to
+            support product workflows and feature delivery.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Full-Stack Development</span>
+            <span class="tag">API Integrations</span>
+            <span class="tag">Application Features</span>
+          </div>
+
+          <p class="note">
+            Professional experience · Specific implementation details omitted
+          </p>
         </article>
 
         <article class="card">
           <h3>VR Orthopedic Surgery Simulation</h3>
+
           <p>
-            Final-year university project focused on a virtual reality
-            simulation to support orthopedic surgery training.
-            Worked on the simulation environment and user interactions.
+            Developed a final-year university project involving a
+            virtual reality simulation to support orthopedic surgery
+            training. Worked on the simulation environment and user
+            interactions, with a focus on the training experience.
           </p>
+
           <div class="tags">
             <span class="tag">Unity</span>
             <span class="tag">Vue.js</span>
             <span class="tag">C</span>
           </div>
-          <p><small>University of Central Punjab · 2023–2024</small></p>
+
+          <p class="note">
+            University of Central Punjab · 2023–2024
+          </p>
         </article>
+
       </div>
     </section>
 
+    <!-- Education -->
     <section id="education">
       <h2 class="section-title">Education</h2>
-      <div class="card">
+
+      <article class="card">
         <h3>Bachelor of Computer Science</h3>
+
         <p>University of Central Punjab, Lahore</p>
-        <p class="muted">September 2020 – July 2024</p>
-        <p class="muted">
-          Relevant coursework: Data Structures and Algorithms,
-          Object-Oriented Programming, Deep Learning, Probability
-          and Statistics, and Microcontroller Programming.
+
+        <div class="education-meta">
+          September 2020 – July 2024
+        </div>
+
+        <p style="margin-top: 14px;">
+          Relevant coursework included Data Structures and Algorithms,
+          Object-Oriented Programming, Deep Learning, Probability and
+          Statistics, and Microcontroller Programming.
         </p>
-      </div>
+      </article>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <h2 class="section-title">Let's Connect</h2>
-      <p class="intro">
-        Interested in full-stack development, freelance projects,
-        and building practical web applications with great teams.
-      </p>
-      <div class="buttons">
-        <a class="button primary"
-           href="mailto:syedaliahsan737@gmail.com">Email me</a>
-        <a class="button"
-           href="https://github.com/Ali-737"
-           target="_blank" rel="noopener noreferrer">GitHub profile</a>
+
+      <div class="contact-card">
+        <p class="intro">
+          I'm interested in full-stack development, project-based
+          collaborations, and building useful web applications.
+          If you have a project or would like to discuss a collaboration,
+          feel free to reach out.
+        </p>
+
+        <div class="buttons">
+          <a
+            class="button primary"
+            href="mailto:syedaliahsan737@gmail.com"
+          >
+            Email Me
+          </a>
+
+          <a
+            class="button"
+            href="https://github.com/Ali-737"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Profile
+          </a>
+        </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-      © 2026 Ali Ahsan · Software Engineer · Lahore, Pakistan
+      <p>
+        © 2026 Ali Ahsan · Software Engineer · Lahore, Pakistan
+      </p>
     </footer>
+
   </div>
 </body>
 </html>
